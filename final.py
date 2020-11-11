@@ -2,7 +2,7 @@ import flask
 from waitress import serve
 import werkzeug
 import pytesseract
-from DL import ids
+from folder.DL import ids
 from flask.json import jsonify
 import cv2
 from PIL import Image
