@@ -4,6 +4,7 @@ import werkzeug
 import pytesseract
 from folder.DL import ids
 from flask.json import jsonify
+from flask import render_template
 import cv2
 from PIL import Image
 
@@ -62,12 +63,14 @@ def handle_request():
     if k in ids:
         #print("This is the id that we're searching for", i)
         result= "Valid License"
+        return render_template("correct.html")
     else:
         result= "Invalid License"
+        return render_template("wrong.html")
     #print("Just printing whatever information I needed is there or not", k)
     # print(type(k))
     # print(ids, k)
-    print(result)
-    return jsonify({"result":result})
+    # print(result)
+    # return jsonify({"result":result})
 
 app.run(host="127.0.0.1" , port=5000, debug=True)
